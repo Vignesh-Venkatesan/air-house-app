@@ -1,0 +1,20 @@
+<%= form_for(@house) do |f| %>
+  <div class="form-group">
+    <%= f.label :Registration_ID %>
+    <%= f.text_field :regid, class: 'form-control' %>
+    <br>
+    <%= f.label :City %>
+    <%= f.text_area :city, class: 'form-control' %>
+    <br>
+    <%= f.label :Locality %>
+    <%= f.text_area :locality, class: 'form-control' %>
+    <br>
+    <%= f.label :Address %>
+    <%= f.text_area :address, class: 'form-control' %>
+    <br>
+    <%= f.label :House_Type %>
+    <%= f.text_area :housetype, class: 'form-control' %>
+    <br>
+    <%= f.submit 'Update House', class: 'btn btn-success' %>
+  </div>
+<% end %>

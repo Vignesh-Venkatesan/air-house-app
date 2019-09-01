@@ -1,0 +1,47 @@
+<% provide(:title, 'Home') %>
+<div class='row'>
+	<h1>
+		Book unique places to stay <br/> and things to do.
+	</h1>
+	<div style='width: 40%; float:left'>
+	<h2>
+		Search 
+	</h2>
+	<%= form_for(@house, url: houses_search_path) do |f| %>
+
+	    <%= f.label :City %>
+	    <%= f.text_field :city , style: "width:81%"%>
+
+		<%= f.label :Locality %>
+	    <%= f.text_field :locality , style: "width:81%" %>
+
+	    <%= f.label :House_Type %>
+	    <%= f.select(:housetype, [
+	            ['Flat', 'Flat'],
+	            ['Villa', 'Villa'],
+	            ['Cottage', 'Cottage'],
+	            ['Any', 'Any']
+	        ],
+	        { :prompt => "Please select"}, style: "width:85%"
+	    ) %>
+
+	    <%= f.label :No_of_Guests %>
+	    <%= f.select(:guests, [
+	            ['1', '1'],
+	            ['2', '2'],
+	            ['3', '3'],
+	            ['4', '4']
+	        ],
+	        { :prompt => "Please select"}, style: "width:85%"
+	    ) %>
+
+		<br/>
+		<br/>
+	    <%= f.submit "Search", class: "btn btn-primary", style: "width: 85%" %>
+
+	<% end %>
+
+	</div>
+
+	<%= render 'layouts/sidepanel' %>
+</div>

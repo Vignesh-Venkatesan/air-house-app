@@ -1,0 +1,26 @@
+<% provide(:title, 'Account Details') %>
+
+<div class='row'>
+	<div class="container" style='width: 40%; float:left; margin-top: 7.5%'>
+	<h1>Account Details</h1>
+	<table class="table table-striped">
+		<tr>
+			<td> Name </td>
+			<td> <%= @acc.name %> </td>
+		</tr>
+		<tr>
+			<td> Email / UserID</td>
+			<td> <%= @acc.email %> </td>
+		</tr>
+		<tr>
+			<td> Phone Number </td>
+			<td> <%= @acc.ph_no %> </td>
+		</tr>
+		<tr>
+			<td> Address </td>
+			<td> <%= @acc.address %> </td>
+		</tr>
+	</table>
+	</div>
+	<%= render 'layouts/sidepanel' %>
+</div>

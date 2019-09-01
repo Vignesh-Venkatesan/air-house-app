@@ -1,0 +1,56 @@
+<% provide(:title, 'Host a House') %>
+<div class='row'>
+    <h1 style="text-align: left;">
+        Become a Host in easy steps
+    </h1>
+    <div style='width: 40%; float:left'>
+    <br />
+    <%= form_for(@house) do |f| %>
+
+        <%= f.label :Agent_ID %>
+        <%= f.text_field :email, :readonly => true, :value => @account.email, style: "width:96%" %>
+
+        <%= f.label :Registration_ID %>
+        <%= f.text_field :regid , style: "width:96%" %>
+
+        <%= f.label :City %>
+        <%= f.text_field :city , style: "width:96%" %>
+
+        <%= f.label :Locality %>
+        <%= f.text_field :locality , style: "width:96%" %>
+
+        <%= f.label :Address %>
+        <%= f.text_area :address , style: "width:96%" %>
+
+        <%= f.label :House_Type %>
+        <%= f.select(:housetype, [
+                ['Flat', 'Flat'],
+                ['Villa', 'Villa'],
+                ['Cottage', 'Cottage'],
+                ['Others', 'Others']
+            ],
+            { :prompt => "Please select"}, style: "width:100%"
+        ) %>
+
+        <%= f.label :Maximum_Guests_Accomodatable %>
+        <%= f.select(:guests, [
+                ['1', '1'],
+                ['2', '2'],
+                ['3', '3'],
+                ['4', '4']
+            ],
+            { :prompt => "Please select"}, style: "width:100%"
+        ) %>
+
+        <br />
+        <br />
+        <%= f.submit "Host my Property", class: "btn btn-primary btn-lg btn-block" %>
+
+    <% end %>
+
+    </div>
+
+    <div style='width: 55%; float:right; margin-top: 5%'>
+                 <img class="_9ofhsl" style="object-fit:cover;vertical-align:bottom; margin-top: 40px;" alt="" decoding="auto" sizes="100vw" src="https://a0.muscache.com/4ea/air/r:w775-h518-sfit,e:fjpg-c80/pictures/0ffd8594-f123-43f0-85bb-7ef88c6f0624.jpg" srcset="https://a0.muscache.com/4ea/air/r:w775-h518-sfit,e:fjpg-c80/pictures/0ffd8594-f123-43f0-85bb-7ef88c6f0624.jpg 775w, https://a0.muscache.com/4ea/air/r:w1550-h1037-sfit,e:fjpg-c80/pictures/0ffd8594-f123-43f0-85bb-7ef88c6f0624.jpg 1550w, https://a0.muscache.com/4ea/air/r:w3100-h2074-sfit,e:fjpg-c80/pictures/0ffd8594-f123-43f0-85bb-7ef88c6f0624.jpg 3100w">
+    </div> 
+</div>

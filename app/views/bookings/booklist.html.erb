@@ -1,0 +1,32 @@
+<% provide(:title, 'Booked House List') %>
+
+<div class='row'>
+	<div class="container" style='float:left; margin-top: 2.5%'>
+	<h1>Booked Houses List</h1>
+	<br />
+	
+	<table class="table table-striped center">
+	<tr>
+		<th>Booking ID</th>
+		<th>Registration ID</th>
+		<th>Guests</th>
+		<th>Cost</th>
+	</tr>
+	<% @bookings.each do |booking| %>
+	  <tr>
+	    <td> <%= booking.bookid %> </td>
+	    <td> <%= booking.regid %> </td>
+	    <td> <%= booking.guests %> </td>
+	    <td> <%= booking.cost %> </td>
+	    <td class="text-center">
+         <%= link_to "Show", '#', class: 'label label-info'%>
+         <%= link_to "Edit", '#', class: 'label label-success'%>
+         <%= link_to "Delete", @post, method: :destroy, data: { confirm: "Are you sure?" }, class: 'label label-danger' %>
+        </td>
+	  </tr>
+	<% end %>
+	</table>
+
+	</div>
+	
+</div>

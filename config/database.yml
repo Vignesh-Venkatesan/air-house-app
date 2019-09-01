@@ -1,0 +1,47 @@
+#
+#
+development:
+  adapter: mysql2
+  encoding: utf8mb4
+  database: airhouse_dev
+  pool: 5
+  host: 127.0.0.1
+  username: root
+  password:
+  migration_user:
+    username: root
+    password: 
+  shards:
+    shard_1:
+      host: 127.0.0.1
+      database: airhouse_dev
+      not_a_shard: false
+      auto_increment_id: 1
+      migration_user:
+        username: root
+        password: 
+      slave:
+        host: 127.0.0.1
+        database: airhouse_dev
+    sandbox_shard:
+      host: 127.0.0.1
+      database: airhouse_dev
+      not_a_shard: false
+      auto_increment_id: 1
+      migration_user:
+        username: root
+        password: 
+      slave:
+        host: 127.0.0.1
+        database: airhouse_dev
+    reports_shard:
+      host: 127.0.0.1
+      database: enterprise_reports
+      not_a_shard: false
+      auto_increment_id: 1
+      migration_user:
+        username: root
+        password: 
+      slave:
+        host: 127.0.0.1
+        database: enterprise_reports
