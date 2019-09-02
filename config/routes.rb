@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   match '/houses/search',     to: 'houses#search',            via: 'post'
   match '/houses/hostlist',   to: 'houses#hostlist',          via: 'get'
   
-  match '/bookings/confirm',  to: 'bookings#confirm',         via: 'get'
+  match '/bookings/create',   to: 'bookings#create',         via: 'get'
   match '/bookings/booklist', to: 'bookings#booklist',        via: 'get'
 
   match '/signup',            to: 'accounts#signup',          via: 'get'

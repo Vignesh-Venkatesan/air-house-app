@@ -19,11 +19,7 @@ class HousesController < ApplicationController
     @loc = params[:house][:locality]
     @ht = params[:house][:housetype]
 
-    if @ht == 'Any'
-      @ht = '';
-    else
-      print @ht.to_s
-    end
+    (@ht == 'Any') ? (@ht = '') : (print @ht.to_s)
 
     if @loc.present? and @ht.present?
       @houses = House.where("city = ? and locality = ? and housetype = ?", @city, @loc, @ht).to_a

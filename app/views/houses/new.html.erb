@@ -11,16 +11,16 @@
         <%= f.text_field :email, :readonly => true, :value => @account.email, style: "width:96%" %>
 
         <%= f.label :Registration_ID %>
-        <%= f.text_field :regid , style: "width:96%" %>
+        <%= f.text_field :regid, :required => true , style: "width:96%" %>
 
         <%= f.label :City %>
-        <%= f.text_field :city , style: "width:96%" %>
+        <%= f.text_field :city, :required => true , style: "width:96%" %>
 
         <%= f.label :Locality %>
-        <%= f.text_field :locality , style: "width:96%" %>
+        <%= f.text_field :locality, :required => true , style: "width:96%" %>
 
         <%= f.label :Address %>
-        <%= f.text_area :address , style: "width:96%" %>
+        <%= f.text_area :address, :required => true , style: "width:96%" %>
 
         <%= f.label :House_Type %>
         <%= f.select(:housetype, [
@@ -29,7 +29,7 @@
                 ['Cottage', 'Cottage'],
                 ['Others', 'Others']
             ],
-            { :prompt => "Please select"}, style: "width:100%"
+            { :prompt => "Please select"}, :required => true, style: "width:100%"
         ) %>
 
         <%= f.label :Maximum_Guests_Accomodatable %>
@@ -39,11 +39,11 @@
                 ['3', '3'],
                 ['4', '4']
             ],
-            { :prompt => "Please select"}, style: "width:100%"
+            { :prompt => "Please select"}, :required => true, style: "width:100%"
         ) %>
 
         <%= f.label :Cost %>
-        <%= f.text_field :cost , style: "width:96%" %>
+        <%= f.text_field :cost, :required => true, style: "width:96%" %>
 
         <br />
         <br />

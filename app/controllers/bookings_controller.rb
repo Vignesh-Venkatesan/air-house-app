@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
 
-  def confirm
+  def create
     if !(current_account.nil?)
   	  @house = House.find_by(regid: params[:format])
   	  @account = current_account
@@ -9,9 +9,6 @@ class BookingsController < ApplicationController
       print 'Login to proceed'
       redirect_to login_path
     end
-  end
-
-  def create
   end
 
   def destroy
