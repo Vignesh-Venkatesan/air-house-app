@@ -4,16 +4,37 @@
     <%= f.text_field :regid, class: 'form-control' %>
     <br>
     <%= f.label :City %>
-    <%= f.text_area :city, class: 'form-control' %>
+    <%= f.text_field :city, class: 'form-control' %>
     <br>
     <%= f.label :Locality %>
-    <%= f.text_area :locality, class: 'form-control' %>
+    <%= f.text_field :locality, class: 'form-control' %>
     <br>
     <%= f.label :Address %>
     <%= f.text_area :address, class: 'form-control' %>
     <br>
     <%= f.label :House_Type %>
-    <%= f.text_area :housetype, class: 'form-control' %>
+    <%= f.select(:housetype, [
+            ['Flat', 'Flat'],
+            ['Villa', 'Villa'],
+            ['Cottage', 'Cottage'],
+            ['Others', 'Others']
+        ],
+        { :prompt => "Please select"}, style: "width:100%", class: 'form-control'
+    ) %>
+
+    <%= f.label :Maximum_Guests_Accomodatable %>
+    <%= f.select(:guests, [
+            ['1', '1'],
+            ['2', '2'],
+            ['3', '3'],
+            ['4', '4']
+        ],
+        { :prompt => "Please select"}, style: "width:100%", class: 'form-control'
+    ) %>
+
+    <%= f.label :Cost %>
+    <%= f.text_field :cost , style: "width:96%", class: 'form-control' %>
+
     <br>
     <%= f.submit 'Update House', class: 'btn btn-success' %>
   </div>

@@ -23,6 +23,18 @@ ActiveRecord::Schema.define(version: 20190829110646) do
     t.string   "remember_token",  limit: 50
   end
 
+  create_table "bookings", primary_key: "bookid", force: :cascade do |t|
+    t.string   "regid",      limit: 100, null: false
+    t.string   "email",      limit: 255, null: false
+    t.integer  "guests",     limit: 4,   null: false
+    t.integer  "cost",       limit: 4,   null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "bookings", ["email"], name: "fk_email", using: :btree
+  add_index "bookings", ["regid"], name: "fk_regid", using: :btree
+
   create_table "houses", primary_key: "regid", force: :cascade do |t|
     t.string   "email",      limit: 255, null: false
     t.string   "city",       limit: 255, null: false
@@ -32,9 +44,12 @@ ActiveRecord::Schema.define(version: 20190829110646) do
     t.integer  "guests",     limit: 4,   null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "cost",       limit: 4,   null: false
   end
 
   add_index "houses", ["email"], name: "fk_email", using: :btree
 
+  add_foreign_key "bookings", "accounts", column: "email", primary_key: "email", name: "bookings_ibfk_2", on_update: :cascade
+  add_foreign_key "bookings", "houses", column: "regid", primary_key: "regid", name: "bookings_ibfk_1", on_update: :cascade
   add_foreign_key "houses", "accounts", column: "email", primary_key: "email", name: "houses_ibfk_1", on_update: :cascade
 end

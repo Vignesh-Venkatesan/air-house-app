@@ -1,0 +1,36 @@
+<% provide(:title, 'House List') %>
+
+<div class='row'>
+	<div class="container" style='width: 40%; float:left; margin-top: 4%'>
+	<h1>Booking Details</h1>
+		<table class="table table-striped">
+			<tr>
+				<td> Booking ID </td>
+				<td> <%= @booking.bookid %> </td>
+			</tr>
+			<tr>
+				<td> Registration ID </td>
+				<td> <%= @booking.regid %> </td>
+			</tr>
+			<tr>
+				<td> Email </td>
+				<td> <%= @booking.email %> </td>
+			</tr>
+			<tr>
+				<td> Guests Alotted for </td>
+				<td> <%= @booking.guests %> </td>
+			</tr>
+			<tr>
+				<td> Cost Per Night </td>
+				<td> <%= @booking.cost %> </td>
+			</tr>
+		</table>
+
+		<%= link_to "Back", home_path, class: 'btn btn-lng'%>
+		<%= link_to "Cancel Booking", @booking, method: :delete, class: 'btn btn-lng'%>
+
+	</div>
+
+	<%= render 'layouts/sidepanel' , style: 'margin-top: 20%' %>
+
+</div>

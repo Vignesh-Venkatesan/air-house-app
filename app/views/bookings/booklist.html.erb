@@ -11,6 +11,7 @@
 		<th>Registration ID</th>
 		<th>Guests</th>
 		<th>Cost</th>
+		<th>Actions</th>
 	</tr>
 	<% @bookings.each do |booking| %>
 	  <tr>
@@ -19,9 +20,8 @@
 	    <td> <%= booking.guests %> </td>
 	    <td> <%= booking.cost %> </td>
 	    <td class="text-center">
-         <%= link_to "Show", '#', class: 'label label-info'%>
-         <%= link_to "Edit", '#', class: 'label label-success'%>
-         <%= link_to "Delete", @post, method: :destroy, data: { confirm: "Are you sure?" }, class: 'label label-danger' %>
+         <%= link_to "Show", booking_path(booking), class: 'label label-info'%>
+         <%= link_to "Delete", booking, method: :delete, data: { confirm: "Are you sure?" }, class: 'label label-danger' %>
         </td>
 	  </tr>
 	<% end %>

@@ -5,7 +5,30 @@
 	<h1>Hosted Houses List</h1>
 	<br />
 	
-	<%= render 'houses/houses_template' %>
+	<table class="table table-striped center">
+		<tr>
+			<th>Registration ID</th>
+			<th>City</th>
+			<th>Locality</th>
+			<th>Address</th>
+			<th>House Type</th>
+			<th>Actions</th>
+		</tr>
+		<% @houses.each do |house| %>
+		  <tr>
+		    <td> <%= house.regid %> </td>
+		    <td> <%= house.city %> </td>
+		    <td> <%= house.locality %> </td>
+		    <td> <%= house.address %> </td>
+		    <td> <%= house.housetype %> </td>
+		    <td class="text-center">
+	         <%= link_to "Show", house_path(house), class: 'label label-info'%>
+	         <%= link_to "Edit", edit_house_path(house), class: 'label label-success'%>
+	         <%= link_to "Delete", house, method: :delete, data: { confirm: "Are you sure?" }, class: 'label label-danger' %>
+	        </td>
+		  </tr>
+		<% end %>
+	</table>
 
 	</div>
 	

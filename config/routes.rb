@@ -10,16 +10,15 @@ Rails.application.routes.draw do
   match '/houses/search',     to: 'houses#search',            via: 'post'
   match '/houses/hostlist',   to: 'houses#hostlist',          via: 'get'
   
-  match '/bookings/confirm', to: 'bookings#confirm',        via: 'get'
+  match '/bookings/confirm',  to: 'bookings#confirm',         via: 'get'
   match '/bookings/booklist', to: 'bookings#booklist',        via: 'get'
 
-  match '/signup',  to: 'accounts#signup',          via: 'get'
+  match '/signup',            to: 'accounts#signup',          via: 'get'
 
-  match '/login',   to: 'sessions#login',           via: 'get'
-  match '/logout',  to: 'sessions#destroy',         via: 'delete'
+  match '/login',             to: 'sessions#login',           via: 'get'
+  match '/logout',            to: 'sessions#destroy',         via: 'delete'
 
-  resources :houses, only: [:new, :show, :edit, :create, :destroy]
-  resources :bookings, only: [:new, :show, :edit, :create, :destroy]
-
+  resources :houses
+  resources :bookings
 
 end

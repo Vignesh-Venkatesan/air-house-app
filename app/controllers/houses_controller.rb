@@ -15,7 +15,7 @@ class HousesController < ApplicationController
   end
 
   def search
-    @houses = House.where("city = ?", params[:house][:city]).to_a
+    @houses = House.where("city = ? and locality = ? and housetype = ?", params[:house][:city], params[:house][:locality], params[:house][:housetype]).to_a
     print @houses.to_s
   end
 
@@ -29,7 +29,13 @@ class HousesController < ApplicationController
     @h = House.find(params[:id])
 
     @h.update_attributes(house_param)
-    redirect_to houses_showlist_path
+    redirect_to houses_hostlist_path
+  end
+
+  def destroy
+    print 'destroy called in houses'
+    House.delete(params[:id])
+    redirect_to home_path
   end
 
   def show
@@ -43,11 +49,11 @@ class HousesController < ApplicationController
   end
 
   def house_param
-    params.require(:house).permit(:regid, :city, :locality, :address, :housetype)
+    params.require(:house).permit(:regid, :city, :locality, :address, :housetype, :guests, :cost)
   end
 
   def user_params
-    params.require(:house).permit(:email, :regid, :city, :locality, :address, :housetype, :guests)
+    params.require(:house).permit(:email, :regid, :city, :locality, :address, :housetype, :guests, :cost)
   end
 
 end

@@ -17,7 +17,7 @@
 	    <td class="text-center">
          <%= link_to "Show", house_path(house), class: 'label label-info'%>
          <%= link_to "Edit", edit_house_path(house), class: 'label label-success'%>
-         <%= link_to "Delete", @post, method: :destroy, data: { confirm: "Are you sure?" }, class: 'label label-danger' %>
+         <%= link_to "Delete", house, method: :delete, data: { confirm: "Are you sure?" }, class: 'label label-danger' %>
         </td>
 	  </tr>
 	<% end %>
