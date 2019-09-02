@@ -10,10 +10,10 @@
 	<%= form_for(@house, url: houses_search_path) do |f| %>
 
 	    <%= f.label :City %>
-	    <%= f.text_field :city , style: "width:81%"%>
+	    <%= f.text_field :city , :required => true, style: "width:81%" %>
 
 		<%= f.label :Locality %>
-	    <%= f.text_field :locality , style: "width:81%" %>
+	    <%= f.text_field :locality, style: "width:81%" %>
 
 	    <%= f.label :House_Type %>
 	    <%= f.select(:housetype, [
@@ -22,7 +22,7 @@
 	            ['Cottage', 'Cottage'],
 	            ['Any', 'Any']
 	        ],
-	        { :prompt => "Please select"}, style: "width:85%"
+	        { :prompt => "Please select"}, :required => true, style: "width:85%"
 	    ) %>
 
 	    <%= f.label :No_of_Guests %>

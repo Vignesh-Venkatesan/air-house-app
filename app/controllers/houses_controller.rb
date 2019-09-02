@@ -15,7 +15,26 @@ class HousesController < ApplicationController
   end
 
   def search
-    @houses = House.where("city = ? and locality = ? and housetype = ?", params[:house][:city], params[:house][:locality], params[:house][:housetype]).to_a
+    @city = params[:house][:city]    
+    @loc = params[:house][:locality]
+    @ht = params[:house][:housetype]
+
+    if @ht == 'Any'
+      @ht = '';
+    else
+      print @ht.to_s
+    end
+
+    if @loc.present? and @ht.present?
+      @houses = House.where("city = ? and locality = ? and housetype = ?", @city, @loc, @ht).to_a
+    elsif @ht.present?
+      @houses = House.where("city = ? and housetype = ?", @city, @ht).to_a
+    elsif @loc.present?
+      @houses = House.where("city = ? and locality = ?", @city, @loc).to_a
+    else
+      @houses = House.where("city = ?", @city).to_a
+    end
+
     print @houses.to_s
   end
 
