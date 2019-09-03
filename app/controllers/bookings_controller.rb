@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
   	  @house = House.find_by(regid: params[:format])
   	  @account = current_account
   	  @booking = Booking.create(regid: @house.regid, email: @account.email, guests: @house.guests, cost: @house.cost)
+      flash[:success] = "Booking was succesful."
     else
       print 'Login to proceed'
       flash[:error] = "Please Log-in/Sign-up for Booking Buddy!"

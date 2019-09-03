@@ -16,10 +16,14 @@ class SessionsController < ApplicationController
 	end
 
 	def googleAuth
-	    # Get access tokens from the google server
-	    access_token = request.env["omniauth.auth"]
-	    account = Account.from_omniauth(access_token)
-	    sign_in(account)
+		begin
+		    # Get access tokens from the google server
+		    access_token = request.env["omniauth.auth"]
+		    account = Account.from_omniauth(access_token)
+		    sign_in(account)
+		rescue
+			flash[:error] = "There was an error while trying to authenticate you."
+		end
 
 	    # Access_token is used to authenticate request made from the rails application to the google server
 	    account.google_token = access_token.credentials.token
@@ -33,6 +37,10 @@ class SessionsController < ApplicationController
 	    flash[:success] = "User log in using OAuth successful."
 	   	redirect_to root_path
   	end
+
+  	def auth_failure
+	  redirect_to root_path
+	end
 
 	def destroy
 		sign_out
