@@ -14,8 +14,8 @@
       <% end %>
 
       <p>New user? <br /> Please do one of the following to sign up!</p>
-      <p> <%= link_to "Sign up manually!", signup_path %> </p>
-      <p> <%= link_to 'Sign up with Google+', '/auth/google' %> </p>
+      <button class='btn btn-lng' style='color: white; float: left;'> <%= link_to "Sign up!", signup_path %> </button>
+      <button class='btn btn-lng' style='color: white; float: left; margin-left: 10px'> <%= link_to 'Sign up with Google+', '/auth/google' %> </button>
   </div>
 
   <%= render 'layouts/sidepanel' %>

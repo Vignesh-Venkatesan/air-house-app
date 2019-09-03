@@ -1,9 +1,8 @@
 <% provide(:title, 'SignUp') %>
 <div class='row'>
-  <div class="container" style='width: 30%; float:left; margin-left: 10%'>
+  <div class="container" style='width: 30%; float:left; margin-left: 10%; margin-top: -1%'>
     <h2>Sign Up</h2>
-    <p>Please fill in this form to sign up</p>
-
+    
     <%= form_for(@account) do |f| %>
 
       <%= f.label :Name %>
@@ -19,8 +18,10 @@
       <%= f.password_field :password_digest %>
 
       <br/>
-      <%= f.submit "Create my account", class: "btn btn-primary" %>
+      <%= f.submit "Create my account", class: "btn btn-primary", style: "width:76.5%" %>
     <% end %>
+
+    <button class='btn btn-lng' style='color: white; width:76.5%'> <%= link_to 'Sign up with Google+', '/auth/google' %> </button>
 
   </div>
   <%= render 'layouts/sidepanel' %>
