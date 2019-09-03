@@ -7,6 +7,7 @@ class BookingsController < ApplicationController
   	  @booking = Booking.create(regid: @house.regid, email: @account.email, guests: @house.guests, cost: @house.cost)
     else
       print 'Login to proceed'
+      flash[:error] = "Please Log-in/Sign-up for Booking Buddy!"
       redirect_to login_path
     end
   end
@@ -14,6 +15,7 @@ class BookingsController < ApplicationController
   def destroy
     print 'destroy called in bookings'
     Booking.delete(params[:id])
+    flash[:success] = "Booking was cancelled succesfully."
     redirect_to home_path
   end
 

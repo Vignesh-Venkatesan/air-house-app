@@ -11,16 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190829110646) do
+ActiveRecord::Schema.define(version: 20190903055958) do
 
   create_table "accounts", primary_key: "email", force: :cascade do |t|
-    t.string   "name",            limit: 255, default: "", null: false
-    t.string   "address",         limit: 255, default: ""
-    t.integer  "ph_no",           limit: 8,                null: false
-    t.string   "password_digest", limit: 255, default: "", null: false
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
-    t.string   "remember_token",  limit: 50
+    t.string   "name",                 limit: 255, default: "", null: false
+    t.string   "address",              limit: 255, default: ""
+    t.integer  "ph_no",                limit: 8,                null: false
+    t.string   "password_digest",      limit: 255, default: "", null: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+    t.string   "remember_token",       limit: 50
+    t.string   "google_token",         limit: 255
+    t.string   "google_refresh_token", limit: 255
   end
 
   create_table "bookings", primary_key: "bookid", force: :cascade do |t|

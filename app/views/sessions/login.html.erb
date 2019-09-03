@@ -1,21 +1,21 @@
 <% provide(:title, 'LogIn') %>
 <div class='row'>
-  <div style='width: 30%; float:left; margin-top: 75px; margin-left: 10%'>
+  <div style='width: 30%; float:left; margin-top: 10px; margin-left: 10%'>
   	<h2>Log In</h2>
   	
   	<%= form_for(:session, url: sessions_path) do |f| %>
-
         <%= f.label :email %>
         <%= f.text_field :email %>
 
         <%= f.label :password %>
         <%= f.password_field :password %>
-  	  <br/>
+  	    <br/>
         <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
       <% end %>
 
-      <p>New user? <%= link_to "Sign up now!", signup_path %></p>
-
+      <p>New user? <br /> Please do one of the following to sign up!</p>
+      <p> <%= link_to "Sign up manually!", signup_path %> </p>
+      <p> <%= link_to 'Sign up with Google+', '/auth/google' %> </p>
   </div>
 
   <%= render 'layouts/sidepanel' %>

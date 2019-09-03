@@ -3,8 +3,10 @@ class HousesController < ApplicationController
   def create
   	@house = House.new(user_params)
   	if @house.save
+      flash[:success] = "Hosting house was successful."
       redirect_to home_path
     else
+      flash[:error] = "Hosting house got failed."
       redirect_to houses_host_path
     end
   end
@@ -44,12 +46,14 @@ class HousesController < ApplicationController
     @h = House.find(params[:id])
 
     @h.update_attributes(house_param)
+    flash[:success] = "House was updated successful."
     redirect_to houses_hostlist_path
   end
 
   def destroy
     print 'destroy called in houses'
     House.delete(params[:id])
+    flash[:success] = "House was deleted successful."
     redirect_to home_path
   end
 

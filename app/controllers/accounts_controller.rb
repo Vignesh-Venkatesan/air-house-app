@@ -8,8 +8,10 @@ class AccountsController < ApplicationController
   	@account = Account.new(user_params)
     if @account.save
       sign_in @account
+      flash[:success] = "User logged in successfully."
       redirect_to home_path
     else
+      flash[:error] = "User log in failed."
       redirect_to login_path 
     end
   end

@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   match '/login',             to: 'sessions#login',           via: 'get'
   match '/logout',            to: 'sessions#destroy',         via: 'delete'
 
+  # Routes for Google authentication
+  get 'auth/google/callback',     to: 'sessions#googleAuth'
+  get 'auth/failure',             to: 'sessions#login'
+
   resources :houses
   resources :bookings
 

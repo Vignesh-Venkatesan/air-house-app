@@ -10,6 +10,14 @@ class Account < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
 
+  def self.from_omniauth(auth)
+    # Creates a new account only if it doesn't exist
+    where(email: auth.info.email).first_or_initialize do |account|
+      account.name = auth.info.name
+      account.email = auth.info.email
+    end
+  end
+
   private
 
     def create_remember_token
