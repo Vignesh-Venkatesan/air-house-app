@@ -9,6 +9,9 @@ class AccountsController < ApplicationController
     if @account.save
       sign_in @account
       flash[:success] = "User logged in successfully."
+
+      AccountMailer.welcome_email(@account).deliver_later
+
       redirect_to home_path
     else
       flash[:error] = "User log in failed."
