@@ -13,45 +13,29 @@
 
 ActiveRecord::Schema.define(version: 20190903055958) do
 
-  create_table "accounts", primary_key: "email", force: :cascade do |t|
-    t.string   "name",                 limit: 255, default: "", null: false
-    t.string   "address",              limit: 255, default: ""
-    t.integer  "ph_no",                limit: 8,                null: false
-    t.string   "password_digest",      limit: 255, default: "", null: false
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
-    t.string   "remember_token",       limit: 50
+  create_table "accounts", force: :cascade do |t|
+    t.string   "name",                 limit: 255
+    t.string   "email",                limit: 255
+    t.string   "address",              limit: 255
+    t.integer  "ph_no",                limit: 4
+    t.string   "password_digest",      limit: 255
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "remember_token",       limit: 255
     t.string   "google_token",         limit: 255
     t.string   "google_refresh_token", limit: 255
   end
 
-  create_table "bookings", primary_key: "bookid", force: :cascade do |t|
-    t.string   "regid",      limit: 100, null: false
-    t.string   "email",      limit: 255, null: false
-    t.integer  "guests",     limit: 4,   null: false
-    t.integer  "cost",       limit: 4,   null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
+  add_index "accounts", ["remember_token"], name: "index_accounts_on_remember_token", using: :btree
 
-  add_index "bookings", ["email"], name: "fk_email", using: :btree
-  add_index "bookings", ["regid"], name: "fk_regid", using: :btree
-
-  create_table "houses", primary_key: "regid", force: :cascade do |t|
-    t.string   "email",      limit: 255, null: false
-    t.string   "city",       limit: 255, null: false
+  create_table "houses", force: :cascade do |t|
+    t.string   "city",       limit: 255
     t.string   "locality",   limit: 255
     t.string   "address",    limit: 255
-    t.string   "housetype",  limit: 255, null: false
-    t.integer  "guests",     limit: 4,   null: false
+    t.string   "housetype",  limit: 255
+    t.integer  "guests",     limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.integer  "cost",       limit: 4,   null: false
   end
 
-  add_index "houses", ["email"], name: "fk_email", using: :btree
-
-  add_foreign_key "bookings", "accounts", column: "email", primary_key: "email", name: "bookings_ibfk_2", on_update: :cascade
-  add_foreign_key "bookings", "houses", column: "regid", primary_key: "regid", name: "bookings_ibfk_1", on_update: :cascade
-  add_foreign_key "houses", "accounts", column: "email", primary_key: "email", name: "houses_ibfk_1", on_update: :cascade
 end

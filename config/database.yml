@@ -45,3 +45,25 @@ development:
       slave:
         host: 127.0.0.1
         database: enterprise_reports
+
+#
+#
+test:
+  adapter: mysql2
+  encoding: utf8
+  database: airhouse_test
+  username: root
+  password:
+  shards:
+    shard_2:
+      host: 127.0.0.1
+      database: airhouse_test
+      not_a_shard: false
+    shard_1:
+      host: 127.0.0.1
+      database: airhouse_test
+      not_a_shard: false
+    sandbox_shard:
+      host: 127.0.0.1
+      database: airhouse_test
+      not_a_shard: false
