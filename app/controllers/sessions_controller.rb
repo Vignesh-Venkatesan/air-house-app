@@ -20,7 +20,6 @@ class SessionsController < ApplicationController
 		    # Get access tokens from the google server
 		    access_token = request.env["omniauth.auth"]
 		    account = Account.from_omniauth(access_token)
-		    sign_in(account)
 		rescue
 			flash[:error] = "There was an error while trying to authenticate you."
 		end
@@ -34,7 +33,8 @@ class SessionsController < ApplicationController
 	    account.google_refresh_token = refresh_token if refresh_token.present?
 
 	    account.save
-	    flash[:success] = "User log in using OAuth successful."
+	    sign_in account
+	    flash[:success] = "User account created using OAuth successful."
 	   	redirect_to root_path
   	end
 

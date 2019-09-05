@@ -10,6 +10,7 @@ class AccountsController < ApplicationController
       sign_in @account
       flash[:success] = "User logged in successfully."
 
+      # Delivers mail async to the new user
       AccountMailer.welcome_email(@account).deliver_later
 
       redirect_to home_path

@@ -5,7 +5,7 @@ module SessionsHelper
     cookies.permanent[:remember_token] = remember_token
     account.update_attribute(:remember_token, Account.digest(remember_token))
     self.current_account = account
-	end
+  end
 
 	def signed_in?
   	!current_account.nil?
