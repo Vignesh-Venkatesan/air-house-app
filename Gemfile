@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rake', '< 11.0'
+gem 'rake', '< 13.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.11.1'
 # Use mysql2 as the database for Active Record
