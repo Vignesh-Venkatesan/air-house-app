@@ -44,7 +44,7 @@ gem 'test-unit'
 
 group :development, :test do
   gem 'rails-dev-boost', git: 'https://github.com/thedarkone/rails-dev-boost'
-  gem 'better_errors', '~> 1.1.0'
+  gem 'better_errors', '~> 2.8.0'
   gem 'binding_of_caller'
   gem 'byebug'
   gem 'pry'
